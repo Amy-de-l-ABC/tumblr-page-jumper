@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tumblr Page Jumper</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2em;
+    }
+    input {
+      padding: 0.5em;
+      margin: 0.5em;
+      width: 80%;
+      max-width: 300px;
+      font-size: 1em;
+    }
+    button {
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tumblr Page Jumper</h1>
+  <p>Enter the blog username and page number:</p><input id="blog" type="text" placeholder="e.g. soulofawinchester" /><br /> <input id="page" type="number" placeholder="Page number" /><br /> <button onclick="goToPage()">Go</button>
+
+  <script>
+    function goToPage() {
+      const blog = document.getElementById("blog").value.trim();
+      const page = document.getElementById("page").value.trim();
+
+      if (!blog || !page || isNaN(page)) {
+        alert("Please enter a valid blog and page number.");
+        return;
+      }
+
+      const url = `https://${blog}.tumblr.com/page/${page}`;
+      window.location.href = url;
+    }
+  </script></body>
+</html>
